@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import CarDialog from "@/components/ui/CarDialog"
 
 type Car = {
   name: string
@@ -11,11 +12,11 @@ type Car = {
 
 export default function CarCard({ car }: { car: Car }) {
   return (
-    <div className="p-8 flex">
+    <div className="flex flex-col lg:flex-row p-8 gap-4">
       
       <Link
         href={`/cars/${car.slug}`}
-        className="w-1/2 lg:w-1/3 border rounded-l-lg overflow-hidden hover:shadow-xl transition"
+        className="lg:w-1/3 w-full border rounded-lg lg:rounded-l-lg lg:rounded-r-none overflow-hidden hover:shadow-xl transition"
       >
         <div className="relative h-96">
           <Image
@@ -25,17 +26,30 @@ export default function CarCard({ car }: { car: Car }) {
             className="object-cover"
           />
         </div>
-        <div className="p-4">
+        <div className="p-4 bg-white">
           <h2 className="text-xl font-bold">{car.name}</h2>
           <p className="text-gray-600">{car.description}</p>
         </div>
       </Link>
 
-      <div className="w-1/2 lg:w-2/3 bg-gray-300 rounded-r-lg">
-        <h2 className="pl-8 pr-8 text-3xl font-sans mb-4">{car.name}</h2>
-        <p className="pl-8 pr-8 text-purple-600">{car.description2}</p>
-      </div>
+      <div className="lg:w-2/3 w-full bg-gray-100 rounded-lg lg:rounded-l-none lg:rounded-r-lg p-6 flex flex-col justify-between">
+        <div>
+          <h2 className="text-3xl font-sans mb-4">{car.name}</h2>
+          <p className="text-purple-600">{car.description2}</p>
+        </div>
 
+        <div className="mt-6">
+          <CarDialog
+            title={car.name}
+            description={car.description}
+            trigger={
+              <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                Zobacz więcej
+              </button>
+            }
+          />
+        </div>
+      </div>
     </div>
   )
 }
