@@ -1,6 +1,9 @@
+"use client"
+
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { ButtonHTMLAttributes } from "react"
+import { motion } from "framer-motion"
+import type { ReactNode } from "react"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none",
@@ -26,15 +29,25 @@ const buttonVariants = cva(
   }
 )
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+type MotionButtonProps = React.ComponentPropsWithoutRef<typeof motion.button> &
+  VariantProps<typeof buttonVariants> & {
+    children?: ReactNode
+  }
 
-export function Button({ className, variant, size, ...props }: ButtonProps) {
+export function Button({
+  className,
+  variant,
+  size,
+  ...props
+}: MotionButtonProps) {
   return (
-    <button
+    <motion.button
       className={cn(buttonVariants({ variant, size }), className)}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.3 }}
       {...props}
     />
   )
 }
+

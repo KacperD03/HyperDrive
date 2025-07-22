@@ -12,7 +12,7 @@ type Car = {
 
 export default function CarCard({ car }: { car: Car }) {
   return (
-    <div className="flex flex-col lg:flex-row p-8 gap-4">
+    <div className="flex flex-col lg:flex-row p-8">
       
       <Link
         href={`/cars/${car.slug}`}

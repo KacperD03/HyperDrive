@@ -2,9 +2,18 @@ import { cars } from '@/data/cars'
 import CarCard from '@/components/CarCard'
 import { Button } from "@/components/ui/Button"
 
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col pt-32">
+    <main
+      className="relative min-h-screen flex flex-col pt-32"
+      style={{
+        backgroundImage: 'url(/background.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-24">
         HyperDrive
       </h1>
