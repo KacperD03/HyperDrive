@@ -26,16 +26,16 @@ export default function CarCard({ car }: { car: Car }) {
             className="object-cover"
           />
         </div>
-        <div className="p-4 bg-white">
-          <h2 className="text-xl font-bold">{car.name}</h2>
-          <p className="text-gray-600">{car.description}</p>
+        <div className="p-4">
+          <h2 className="text-purple-500 text-xl font-bold">{car.name}</h2>
+          <p className="text-purple-300">{car.description}</p>
         </div>
       </Link>
 
-      <div className="lg:w-2/3 w-full bg-gray-100 rounded-lg lg:rounded-l-none lg:rounded-r-lg p-6 flex flex-col justify-between">
+      <div className="lg:w-2/3 w-full border rounded-lg lg:rounded-l-none lg:rounded-r-lg p-6 flex flex-col justify-between">
         <div>
-          <h2 className="text-3xl font-sans mb-4">{car.name}</h2>
-          <p className="text-purple-600">{car.description2}</p>
+          <h2 className="text-purple-500 text-3xl font-sans mb-4">{car.name}</h2>
+          <p className="text-purple-300">{car.description2}</p>
         </div>
 
         <div className="mt-6">
@@ -43,7 +43,7 @@ export default function CarCard({ car }: { car: Car }) {
             title={car.name}
             description={car.description}
             trigger={
-              <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+              <button className="mt-2 bg-pink-700 text-white px-4 py-2 rounded hover:bg-pink-900 transition">
                 Zobacz więcej
               </button>
             }
