@@ -2,6 +2,8 @@ import ParticlesBackground from "@/components/ui/ParticlesBackground";
 import { cars } from '@/data/cars';
 import CarCard from '@/components/CarCard';
 import { Button } from "@/components/ui/Button";
+import Link from 'next/link';
+
 
 export default function Home() {
   return (
@@ -14,7 +16,9 @@ export default function Home() {
       </h1>
 
       <div className="p-8 flex flex-col items-center gap-4">
-        <Button variant="default">Zarezerwuj jazdę</Button>
+        <Link href="/rezerwacja">
+          <Button variant="default">Zarezerwuj jazdę</Button>
+        </Link>
       </div>
 
       <div className="pl-24 flex flex-col gap-8">
